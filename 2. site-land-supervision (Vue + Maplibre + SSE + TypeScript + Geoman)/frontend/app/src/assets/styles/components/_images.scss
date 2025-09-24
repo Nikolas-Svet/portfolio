@@ -1,0 +1,7 @@
+img[alt='edit'],
+img[alt='delete'] {
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+}

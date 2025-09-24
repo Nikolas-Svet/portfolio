@@ -1,0 +1,17 @@
+.text {
+  font-family: 'Golos Text', sans-serif;
+
+  // веса
+  &--weight--600 { font-weight: 600; }
+  &--weight--500 { font-weight: 500; }
+  &--weight--400 { font-weight: 400; }
+
+  // размеры
+  &--size--36  { font-size: clamp(28px, 3.3vw, 36px); }
+  &--size--24  { font-size: 24px; }
+  &--size--20  { font-size: clamp(16px, 4vw, 20px); }
+  &--size--18  { font-size: 18px; }
+  &--size--16  { font-size: 16px; }
+  &--size--14  { font-size: 14px; }
+  &--size--12  { font-size: 12px; }
+}

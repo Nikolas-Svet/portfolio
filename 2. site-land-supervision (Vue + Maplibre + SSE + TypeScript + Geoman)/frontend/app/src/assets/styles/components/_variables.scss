@@ -1,0 +1,2423 @@
+@use 'sass:map';
+
+$background-color: #1e1d20;
+$text-color: rgb(255, 255, 255);
+$Golos_Text_Regular: 'Golos Text Regular', sans-serif;
+$Golos_Text_Medium: 'Golos Text Medium', sans-serif;
+$primary-color: #d68166;
+$black: #000000;
+$admin-nav-color: rgba(#232224, 94%);
+
+// design 2.0
+
+$primary-color_2: #d68166;
+$primary-color_2-hover: rgba(214, 129, 102, 0.2);
+$primary-background: #161616;
+$primary-background-two: #1e1d20;
+$primary-background-button: #D9D9D9;
+$primary-color-border: #c7c7c7;
+$primary-white: #ffffff;
+$primary-red: #ff3b30;
+
+$width-panel: clamp(0px, 5%, 90px);
+$primary-hover: #303030;
+
+$dark-theme: (
+        background-color: #1e1d20,
+        text-color: rgb(255, 255, 255),
+        primary-color: #d68166,
+        black: #000000,
+        admin-nav-color: rgba(#232224, 94%),
+        primary-color_2: #d68166,
+        primary-background: #161616,
+        primary-background-two: #1e1d20,
+        primary-background-button: #D9D9D9,
+        primary-background-three: #161616,
+        primary-color-border: #c7c7c7,
+        primary-inactive: rgba(199, 199, 199, 0.4),
+        primary-white: #ffffff,
+        width-panel: clamp(0px, 5%, 90px),
+        primary-hover: #303030,
+        primary-hover2: #404040,
+        primary-color-icon: #afafaf,
+        color-icon-theme: #afafaf,
+        panel-color: #a8a8a8,
+        background-input: rgba(255, 255, 255, 0.05),
+        primary-invalid: rgba(214, 129, 102, 0.3),
+        add-layer-primary-color: #e37a59
+);
+
+$light-theme: (
+        background-color: #1e1d20,
+        text-color: #262626,
+        primary-color: #d68166,
+        black: #000000,
+        admin-nav-color: rgba(#232224, 94%),
+        primary-color_2: #d68166,
+        primary-background: #f4f5f7,
+        primary-background-two: #ffffff,
+        primary-background-button: #939393,
+        primary-background-three: #f5f5f5,
+        primary-color-border: #c7c7c7,
+        primary-inactive: rgba(199, 199, 199, 0.4),
+        primary-white: #ffffff,
+        width-panel: clamp(0px, 5%, 90px),
+        primary-hover: #eaebed,
+        primary-hover2: #dcdcdf,
+        primary-color-icon: #696969,
+        color-icon-theme: #d68166,
+        background-input: rgba(0, 0, 0, 0.05),
+        panel-color: #4d4d4d,
+        primary-invalid: rgba(214, 129, 102, 0.3),
+        add-layer-primary-color: #e37a59
+);
+
+@mixin apply-theme-styles($theme-map) {
+  //*:not(.wrap):not(.notifications__block):not(.panel-info):not(.map-controls):not(
+  //    .map-controls__acti
+  //  ):not(.map-controls__block):not(.info-box):not(.toolbar):not(.maplibregl-ctrl-group):not(
+  //    .transition-span
+  //  ):not(.header__link):not(.icon-desktop):not(.icon-documents):not(.carousel__track):not(.pagination-dots span):not(.aside__header--save *):not(.container *):not(.map__loader):not(.form *) {
+  //  transition: background-color 0.3s ease,
+  //  color 0.3s ease,
+  //  fill 0.3s ease,
+  //  stroke 0.3s ease !important;
+  //}
+
+  * {
+    color: map.get($theme-map, text-color);
+  }
+
+  .maplibregl-marker-anchor-center {
+    * {
+
+      color: transparent !important;
+    }
+  }
+
+  .edit-fields-modal-container {
+    background-color: map.get($theme-map, primary-background-two);
+  }
+
+  .edit-fields {
+    &__input {
+      border: 1px solid map.get($theme-map, primary-color-border);
+    }
+
+    &__del {
+      background-color: map.get($theme-map, background-input) !important;
+    }
+  }
+
+  .toolbar__delete {
+    * {
+      fill: map.get($theme-map, primary-color-icon) !important;
+    }
+
+    &:hover {
+      * {
+        fill: map.get($theme-map, primary-color) !important;
+      }
+    }
+  }
+
+  .burger {
+    background-color: map.get($theme-map, primary-background);
+  }
+
+  .selected-preview {
+    ul {
+      border: 1px solid map.get($theme-map, primary-color-border);
+    }
+  }
+
+  .add-layer-in-group {
+    &__inactive {
+      background-color: map.get($theme-map, primary-inactive) !important;
+    }
+
+    &__left {
+      border-right: 1px solid map.get($theme-map, primary-color-border);
+
+      svg {
+        * {
+          fill: map.get($theme-map, primary-color);
+        }
+      }
+    }
+  }
+
+  .coord-switch {
+    &__value {
+      input {
+        color: map.get($theme-map, primary-color);
+        border-left: 1px solid map.get($theme-map, primary-color-border);
+      }
+    }
+
+    &__edit {
+      svg {
+        * {
+          stroke: map.get($theme-map, primary-color-border);
+        }
+      }
+
+      &:last-child {
+
+        border-left: 1px solid map.get($theme-map, primary-color-border) !important;
+      }
+    }
+  }
+
+  .group-layers {
+    &__active {
+      background-color: map.get($theme-map, primary-hover);
+    }
+  }
+
+  .territories {
+    &__content {
+      border-bottom: 1px solid map.get($theme-map, primary-color-border);
+      border-top: 1px solid map.get($theme-map, primary-color-border);
+    }
+  }
+
+  .edit-modal-container {
+    background-color: map.get($theme-map, primary-background) !important;
+
+    .save-button {
+      border: none;
+      background-color: map.get($theme-map, primary-color);
+      color: map.get($theme-map, primary-background-two) !important;
+
+      svg {
+        * {
+          stroke: map.get($theme-map, primary-background-two);
+        }
+      }
+    }
+
+    .edit-button {
+      background-color: transparent;
+      border: 1px solid map.get($theme-map, primary-color);
+      color: map.get($theme-map, primary-color) !important;
+
+      &:hover {
+        background-color: map.get($theme-map, primary-color);
+        color: map.get($theme-map, primary-background-two) !important;
+
+        svg {
+          * {
+            stroke: map.get($theme-map, primary-background-two);
+          }
+        }
+      }
+    }
+
+    .close-button {
+      background-color: transparent;
+      border: 1px solid map.get($theme-map, primary-color-border);
+
+      &:hover {
+        background-color: map.get($theme-map, primary-color-border);
+      }
+    }
+
+    .cancel-button {
+      border: none;
+      background-color: map.get($theme-map, primary-color-border);
+    }
+
+    .textarea {
+      background-color: map.get($theme-map, primary-background) !important;
+    }
+  }
+
+
+  .delete_geom {
+    background-color: map.get($theme-map, primary-background-two);
+
+    button {
+      &:first-child {
+        background-color: map.get($theme-map, primary-color_2);
+        border: none;
+        color: map.get($theme-map, primary-background-two) !important;
+      }
+
+      &:last-child {
+        background-color: transparent;
+        border: 1px solid map.get($theme-map, primary-color_2);
+      }
+    }
+  }
+
+  .popup {
+
+    &__content {
+      background-color: map.get($theme-map, primary-background-two);
+    }
+
+    &__actions {
+      button {
+        &:first-child {
+          background-color: map.get($theme-map, primary-color_2);
+          border: none;
+          color: map.get($theme-map, primary-background-two) !important;
+        }
+
+        &:last-child {
+          background-color: transparent;
+          border: 1px solid map.get($theme-map, primary-color_2);
+        }
+      }
+    }
+  }
+
+  .tooltip-warning {
+    background-color: map.get($theme-map, primary-background-two);
+    border: 1px solid map.get($theme-map, primary-color-border);
+  }
+
+  .maplibregl-ctrl-group {
+    background-color: map.get($theme-map, primary-background-two);
+  }
+
+  .distance-icon {
+    background-color: map.get($theme-map, primary-background-two);
+  }
+
+  .full-distance-icon {
+    background-color: map.get($theme-map, primary-background-two);
+  }
+
+  .message-input-popup {
+    background-color: map.get($theme-map, primary-background-two);
+
+    input {
+      &::placeholder {
+        color: map.get($theme-map, primary-color-icon);
+      }
+    }
+
+    svg {
+      * {
+        stroke: map.get($theme-map, primary-color-icon);
+      }
+    }
+
+    &__filled {
+      border-top: 1px solid map.get($theme-map, primary-color-border);
+    }
+  }
+
+  .geometryPoint {
+    &:after {
+      background-color: map.get($theme-map, primary-background-two);
+    }
+
+    svg {
+      path {
+        fill: map.get($theme-map, primary-color-icon) !important;
+      }
+
+      &:hover {
+        path {
+          fill: map.get($theme-map, primary-color_2) !important;
+
+          //&:hover {
+          //  fill: map.get($theme-map, primary-color-icon) !important;
+          //}
+        }
+      }
+    }
+  }
+
+  .toolbar {
+    background-color: map.get($theme-map, primary-background-three);
+
+    &__iconActive1 {
+      * {
+        fill: map.get($theme-map, primary-color_2) !important;
+      }
+    }
+
+    &__icon1 {
+      * {
+        fill: map.get($theme-map, primary-color-icon);
+      }
+
+      &:hover {
+        * {
+          fill: map.get($theme-map, primary-color_2);
+        }
+      }
+    }
+
+    &__iconActive2 {
+      * {
+        stroke: map.get($theme-map, primary-color_2) !important;
+      }
+    }
+
+    &__icon2 {
+      * {
+        stroke: map.get($theme-map, primary-color-icon) !important;
+      }
+
+      &:hover {
+        * {
+          stroke: map.get($theme-map, primary-color_2) !important;
+        }
+      }
+    }
+
+    &__inactive {
+      &:disabled {
+        background-color: map.get($theme-map, primary-invalid) !important;
+
+        svg {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  .toolbar-basic {
+    border-right: 1px solid map.get($theme-map, primary-color-border);
+
+    &__info {
+      background-color: map.get($theme-map, primary-background-two) !important;
+    }
+
+    &__info2 {
+      &:after {
+        background-color: map.get($theme-map, primary-background-two) !important;
+      }
+
+      .info2__buttons {
+        button {
+          &:first-child {
+            svg {
+              * {
+                stroke: map.get($theme-map, primary-color-icon) !important;
+              }
+
+              &:hover {
+                * {
+                  stroke: map.get($theme-map, primary-color_2) !important;
+                }
+              }
+            }
+          }
+
+          &:last-child {
+            svg {
+              * {
+                fill: map.get($theme-map, primary-color-icon) !important;
+              }
+
+              &:hover {
+                * {
+                  fill: map.get($theme-map, primary-color_2) !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .icon-enter {
+    * {
+      stroke: map.get($theme-map, primary-color-icon) !important;
+    }
+
+    &:hover {
+      * {
+        stroke: map.get($theme-map, primary-color_2) !important;
+      }
+    }
+  }
+
+  .toolbarSaveChanges {
+    border-left: 1px solid map.get($theme-map, primary-color-border);
+  }
+  .toolbar-actions {
+    border-right: 1px solid map.get($theme-map, primary-color-border);
+
+    &:after,
+    &:before {
+      background-color: map.get($theme-map, primary-color-border);
+    }
+  }
+
+  .row-selected {
+    background-color: map.get($theme-map, primary-hover);
+  }
+
+  .notification__close {
+    &:after,
+    &:before {
+      background-color: map.get($theme-map, primary-color_2);
+    }
+  }
+
+  html,
+  body,
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: map.get($theme-map, primary-color-border) map.get($theme-map, primary-hover); /* thumb track */
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: map.get($theme-map, primary-color-border);
+    border-radius: 0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: map.get($theme-map, primary-color-border);
+    border-radius: 4px;
+    border: 2px solid transparent;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: map.get($theme-map, primary-color-border);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background-color: map.get($theme-map, primary-color-border);
+  }
+
+  .index__content-left {
+    border-right: 1px solid map.get($theme-map, primary-color-border) !important;
+    background-color: map.get($theme-map, primary-background-two);
+  }
+
+  .header {
+    border-bottom: 1px solid map.get($theme-map, primary-color-border);
+    background-color: map.get($theme-map, primary-background-two);
+
+    &__desktopsActive {
+      background-color: map.get($theme-map, primary-hover);
+
+      .icon-desktop {
+        path {
+          fill: map.get($theme-map, primary-color_2) !important;
+        }
+      }
+
+      .transition-span {
+        color: map.get($theme-map, primary-color_2) !important;
+      }
+    }
+
+    &__link {
+      &:hover {
+        background-color: map.get($theme-map, primary-hover);
+      }
+
+      span {
+        color: map.get($theme-map, text-color) !important;
+      }
+    }
+
+    &__documentsActive {
+      background-color: map.get($theme-map, primary-hover);
+
+      .icon-documents {
+        path {
+          fill: map.get($theme-map, primary-color_2) !important;
+        }
+      }
+
+      .transition-span {
+        color: map.get($theme-map, primary-color_2) !important;
+      }
+    }
+
+    &__link {
+      &:hover {
+        background-color: map.get($theme-map, primary-hover);
+      }
+
+      span {
+        color: map.get($theme-map, text-color) !important;
+      }
+    }
+
+    .icon-theme {
+      * {
+        fill: transparent !important;
+        //stroke: map.get($theme-map, color-icon-theme) !important;
+        stroke: map.get($theme-map, primary-color-icon) !important;
+      }
+
+      &:hover {
+        * {
+          fill: transparent !important;
+          stroke: map.get($theme-map, primary-color_2) !important;
+        }
+      }
+    }
+
+    &__search {
+      input {
+        &::placeholder {
+          color: map.get($theme-map, text-color) !important;
+        }
+
+        &:focus {
+          &::placeholder {
+            color: map.get($theme-map, primary-color_2) !important;
+          }
+        }
+      }
+
+      svg {
+        * {
+          stroke: map.get($theme-map, text-color) !important;
+        }
+      }
+
+      &:hover {
+        input {
+          &::placeholder {
+            color: map.get($theme-map, primary-color_2) !important;
+          }
+        }
+
+        * {
+          stroke: map.get($theme-map, primary-color_2) !important;
+        }
+      }
+    }
+
+    &__logo {
+      border-right: 1px solid map.get($theme-map, primary-color-border);
+
+      &:hover {
+        color: #ffffff;
+      }
+    }
+
+    &__navBlock {
+      &__left {
+        a,
+        span {
+          &:hover {
+            color: map.get($theme-map, primary-color_2);
+          }
+        }
+      }
+
+      &__user {
+        div {
+          span {
+            color: map.get($theme-map, primary-color-icon);
+          }
+        }
+      }
+
+      &__right {
+        #user {
+          * {
+            stroke: map.get($theme-map, primary-color-icon);
+          }
+
+          &:hover {
+            * {
+              stroke: map.get($theme-map, primary-color_2) !important;
+            }
+          }
+        }
+
+        #logout {
+          &:hover {
+            * {
+              fill: map.get($theme-map, primary-color_2) !important;
+            }
+          }
+
+          * {
+            fill: map.get($theme-map, primary-color-icon) !important;
+          }
+        }
+      }
+    }
+
+    &__link {
+      border-right: 1px solid map.get($theme-map, primary-color-border);
+
+      &:hover {
+        background-color: map.get($theme-map, primary-hover) !important;
+
+        span {
+          color: map.get($theme-map, primary-color_2) !important;
+        }
+
+        svg {
+          * {
+            fill: map.get($theme-map, primary-color_2) !important;
+          }
+        }
+      }
+
+      svg {
+        * {
+          fill: map.get($theme-map, text-color) !important;
+        }
+      }
+    }
+  }
+
+  .panel {
+    background-color: map.get($theme-map, primary-background) !important;
+    border-right: map.get($theme-map, primary-color-border) !important;
+
+    &:after {
+      background-color: map.get($theme-map, primary-color-border) !important;
+    }
+
+    &__tools {
+      background-color: map.get($theme-map, primary-background-two) !important;
+      border-right: map.get($theme-map, primary-color-border) !important;
+    }
+
+    &__item {
+      border-bottom: 1px solid map.get($theme-map, primary-color-border) !important;
+
+      &:after {
+        background-color: map.get($theme-map, panel-color) !important;
+      }
+
+      svg {
+        * {
+          fill: map.get($theme-map, panel-color) !important;
+        }
+      }
+
+      &:hover {
+        background-color: map.get($theme-map, primary-hover) !important;
+      }
+
+      &--active {
+        background-color: map.get($theme-map, primary-hover) !important;
+
+        &:after {
+          background-color: map.get($theme-map, primary-color_2) !important;
+        }
+
+        svg {
+          * {
+            fill: map.get($theme-map, primary-color_2) !important;
+          }
+        }
+      }
+    }
+
+    &__block {
+      &:hover {
+        background-color: map.get($theme-map, primary-hover);
+      }
+    }
+  }
+
+  .notifications {
+    border-top: 1px solid map.get($theme-map, primary-color-border);
+
+    &:hover {
+      background-color: map.get($theme-map, hover-bg-color);
+    }
+
+    &__title {
+      background-color: map.get($theme-map, hover-bg-color);
+      border-bottom: 1px solid map.get($theme-map, primary-color-border);
+
+      &:after {
+        background-color: map.get($theme-map, primary-color-border);
+      }
+    }
+
+    &__block {
+      background-color: map.get($theme-map, primary-background-two);
+      border-right: 1px solid map.get($theme-map, primary-color-border);
+    }
+
+    &__title {
+      background-color: map.get($theme-map, primary-hover);
+    }
+
+    &__titleEvent {
+      &:hover {
+        background-color: map.get($theme-map, primary-hover);
+      }
+    }
+
+    &__hoverEvent {
+      background-color: map.get($theme-map, primary-hover) !important;
+    }
+
+    &__info {
+      border-bottom: 1px solid map.get($theme-map, primary-color-border);
+    }
+  }
+
+  .aside__header {
+    &--save {
+      background-color: map.get($theme-map, primary-hover) !important;
+    }
+
+    &--add {
+      background-color: map.get($theme-map, primary-color_2) !important;
+
+      &:after {
+        background-color: map.get($theme-map, text-color) !important;
+      }
+
+      &:before {
+        background-color: map.get($theme-map, text-color) !important;
+      }
+    }
+  }
+
+  .aside {
+    &__search {
+      border-bottom: 1px solid map.get($theme-map, primary-color-border);
+
+      input {
+        //color: map.get($theme-map, primary-color-border) !important;
+
+        &::placeholder {
+          color: map.get($theme-map, primary-color-border);
+        }
+      }
+
+      svg {
+        * {
+          stroke: map.get($theme-map, primary-color-border) !important;
+        }
+      }
+    }
+  }
+
+  // ********************************************************************************************
+  // ********************************************************************************************
+  // Инструменты
+
+  .tooltip {
+    background: map.get($theme-map, primary-background) !important;
+
+    &:after {
+      border-bottom: 5px solid map.get($theme-map, primary-background);
+    }
+  }
+
+  .tooltip-text {
+    background: map.get($theme-map, primary-hover);
+  }
+
+  .vs__search {
+    border: none !important;
+  }
+
+  .filter {
+    &__input {
+      border: 1px solid map.get($theme-map, primary-color-border) !important;
+
+      &-disabled {
+        border: 1px solid map.get($theme-map, primary-color-border) !important;
+        background-color: map.get($theme-map, primary-hover) !important;
+      }
+    }
+  }
+
+  .vs__dropdown-toggle {
+    border: 1px solid map.get($theme-map, primary-color-border) !important;
+  }
+
+  .ai,
+  .mergingVector,
+  .filter {
+    border: 1px solid map.get($theme-map, primary-color-border) !important;
+    background-color: map.get($theme-map, primary-background-two) !important;
+
+    &__block {
+      button {
+        background-color: map.get($theme-map, primary-color_2) !important;
+        color: map.get($theme-map, primary-background) !important;
+      }
+    }
+
+    &__button {
+      color: map.get($theme-map, primary-background) !important;
+
+      &--cancel {
+        color: map.get($theme-map, primary-color_2) !important;
+      }
+
+      &--accept {
+        background-color: map.get($theme-map, primary-color_2) !important;
+      }
+    }
+  }
+
+  .forestArea {
+    border: 1px solid map.get($theme-map, primary-color-border) !important;
+    background-color: map.get($theme-map, primary-background-two) !important;
+
+    &__block {
+      button {
+        background-color: map.get($theme-map, primary-color_2) !important;
+        color: map.get($theme-map, text-color) !important;
+      }
+    }
+
+    &__button {
+      color: map.get($theme-map, primary-background) !important;
+
+      &--cancel {
+        color: map.get($theme-map, primary-color_2) !important;
+      }
+
+      &--accept {
+        background-color: map.get($theme-map, primary-color_2) !important;
+      }
+    }
+  }
+
+  .artificial_ai {
+    border: 1px solid map.get($theme-map, primary-color-border) !important;
+    background-color: map.get($theme-map, primary-background-two) !important;
+
+    &__block {
+      button {
+        background-color: map.get($theme-map, primary-color_2) !important;
+        color: map.get($theme-map, primary-background) !important;
+      }
+    }
+
+    &__button {
+      color: map.get($theme-map, primary-background) !important;
+
+      &--cancel {
+        color: map.get($theme-map, primary-color_2) !important;
+      }
+
+      &--accept {
+        background-color: map.get($theme-map, primary-color_2) !important;
+      }
+    }
+  }
+
+  .layers {
+    tr {
+      &:first-child {
+        border-bottom: 1px solid map.get($theme-map, primary-color-border);
+      }
+
+      &:last-child {
+        border-bottom: 1px solid map.get($theme-map, primary-color-border);
+      }
+    }
+  }
+
+  .selection {
+    border: 1px solid map.get($theme-map, primary-color-border);
+    background-color: map.get($theme-map, primary-background-two);
+
+    .angle__container {
+      input {
+        //border: 1px solid map.get($theme-map, primary-color-border);
+
+        &::placeholder {
+          color: map.get($theme-map, text-color);
+        }
+      }
+    }
+
+    &__body {
+      tbody {
+        tr {
+          border-bottom: 1px solid map.get($theme-map, primary-color-border);
+        }
+      }
+
+      th {
+        background: map.get($theme-map, primary-hover) !important;
+      }
+    }
+
+    &__buttonBlock {
+      button {
+        color: map.get($theme-map, primary-background) !important;
+      }
+    }
+  }
+
+  .subtraction {
+    border: 1px solid map.get($theme-map, primary-color-border);
+    background-color: map.get($theme-map, primary-background-two);
+
+    textarea {
+      border: 1px solid map.get($theme-map, primary-color-border);
+    }
+
+    &__buttonBlock {
+      &--cancel {
+        background-color: transparent;
+        color: map.get($theme-map, primary-color_2) !important;
+        border: 1px solid map.get($theme-map, primary-color_2);
+
+        &:hover {
+          background-color: map.get($theme-map, primary-color_2);
+          color: map.get($theme-map, primary-background) !important;
+        }
+      }
+
+      &--accept {
+        background-color: map.get($theme-map, primary-color_2) !important;
+        color: map.get($theme-map, primary-background) !important;
+      }
+
+      button {
+        color: map.get($theme-map, primary-background-two);
+      }
+    }
+  }
+
+  .textarea {
+    border: 1px solid map.get($theme-map, primary-color-border);
+  }
+
+  .add_vector__input {
+    border: 1px solid map.get($theme-map, primary-color-border) !important;
+
+    &::placeholder {
+      color: map.get($theme-map, text-color) !important;
+    }
+  }
+
+  .add_vector__input {
+    border: 1px solid map.get($theme-map, primary-color-border);
+  }
+
+  .add_vector {
+    border: 1px solid map.get($theme-map, primary-color-border);
+    background-color: map.get($theme-map, primary-background-two);
+
+    .icon-add {
+      &::after,
+      &::before {
+        background-color: map.get($theme-map, primary-white) !important;
+      }
+    }
+
+    .icon-added {
+      &::after {
+        border: 1px solid map.get($theme-map, text-color);
+        background-color: map.get($theme-map, text-color);
+      }
+    }
+
+    th {
+      background: map.get($theme-map, primary-hover);
+    }
+
+    &__button {
+      color: map.get($theme-map, primary-background-two);
+
+      &--cancel {
+        background-color: transparent;
+
+        &:hover {
+          border-color: map.get($theme-map, primary-color_2);
+        }
+      }
+
+      &--accept {
+        background-color: map.get($theme-map, primary-color_2) !important;
+        color: map.get($theme-map, primary-background-two) !important;
+
+        &:hover {
+          color: map.get($theme-map, text-color) !important;
+        }
+      }
+
+
+    }
+  }
+
+  .select-multy {
+    .vs__selected {
+      background-color: map.get($theme-map, primary-hover) !important;
+      border: 1px solid map.get($theme-map, primary-color-border);
+    }
+  }
+
+  .table {
+    th {
+      background-color: map.get($theme-map, primary-hover);
+    }
+
+    tbody {
+      tr {
+        &:hover {
+          background-color: map.get($theme-map, primary-hover);
+        }
+      }
+    }
+
+    &__input {
+      height: 40px;
+      background-color: map.get($theme-map, primary-hover);
+      border: 1px solid map.get($theme-map, primary-color-border);
+    }
+  }
+
+  .attribute__input {
+    background-color: map.get($theme-map, background-input);
+
+    &::placeholder {
+      color: map.get($theme-map, text-color) !important;
+    }
+  }
+
+  .add-layer {
+    input {
+      &::placeholder {
+        color: map.get($theme-map, text-color) !important;
+      }
+    }
+
+    &__content {
+      background-color: map.get($theme-map, primary-background-two);
+      border: 1px solid map.get($theme-map, primary-color-border);
+
+      &__header {
+        .create-layer__button {
+          background-color: map.get($theme-map, add-layer-primary-color);
+          color: map.get($theme-map, primary-white) !important;
+
+          .icon-add {
+            &::after,
+            &::before {
+              background-color: map.get($theme-map, primary-white) !important;
+            }
+          }
+        }
+      }
+
+      &__main {
+        .icon-added {
+          &::after {
+            border: 1px solid map.get($theme-map, text-color);
+            background-color: map.get($theme-map, text-color);
+          }
+        }
+
+        .delete-icon {
+          path {
+            fill: map.get($theme-map, primary-color-icon);
+          }
+        }
+
+        .icon-add {
+          &::after,
+          &::before {
+            background-color: map.get($theme-map, add-layer-primary-color);
+          }
+        }
+
+        table {
+          th {
+            background: map.get($theme-map, primary-hover);
+          }
+
+          .active_row {
+            font-weight: 500;
+            color: map.get($theme-map, add-layer-primary-color) !important;
+          }
+        }
+      }
+
+      &__footer {
+        button {
+          background-color: #d9d9d9;
+
+          span {
+            color: #4d4d4d;
+          }
+        }
+      }
+    }
+  }
+
+  // ********************************************************************************************
+  // ********************************************************************************************
+
+  #form_13 {
+    stroke: map.get($theme-map, primary-color-border) !important;
+  }
+
+  #form_12 {
+    stroke: map.get($theme-map, primary-color_2) !important;
+  }
+
+  .mainLayout__wrap {
+    background-color: map.get($theme-map, primary-background);
+  }
+
+  .filters-container {
+    &:after {
+      background-color: map.get($theme-map, primary-color-border);
+    }
+
+    input {
+      color: map.get($theme-map, primary-color-icon) !important;
+
+      &::placeholder {
+        color: map.get($theme-map, primary-color-icon) !important;
+      }
+    }
+  }
+
+  .filters {
+    &--active {
+      background-color: map.get($theme-map, primary-hover2) !important;
+    }
+
+    &__star {
+      border-right: 1px solid map.get($theme-map, primary-color-border);
+
+      &:hover {
+        background-color: map.get($theme-map, primary-hover);
+      }
+
+      &--active {
+        background-color: map.get($theme-map, primary-hover);
+      }
+    }
+
+    &__link {
+      border-left: 1px solid map.get($theme-map, primary-color-border);
+      border-right: 1px solid map.get($theme-map, primary-color-border);
+      border-top: none !important;
+      border-bottom: none !important;
+      color: map.get($theme-map, primary-color-icon);
+
+      * {
+        stroke: map.get($theme-map, primary-color-icon);
+      }
+
+      &:hover {
+        background-color: map.get($theme-map, primary-hover);
+        color: map.get($theme-map, primary-color_2) !important;
+
+        * {
+          stroke: map.get($theme-map, primary-color_2) !important;
+        }
+      }
+    }
+
+    &__sorted {
+      border-left: 1px solid map.get($theme-map, primary-color-border);
+      border-right: 1px solid map.get($theme-map, primary-color-border);
+      border-top: none !important;
+      border-bottom: none !important;
+
+      span {
+        color: map.get($theme-map, primary-color-icon);
+
+        .icon-arrow {
+          &:before, &:after {
+            background-color: map.get($theme-map, primary-color-icon) !important;
+          }
+        }
+      }
+
+      &--container {
+        background-color: map.get($theme-map, primary-hover);
+        border: 1px solid map.get($theme-map, primary-color-border);
+        border-top: none !important;
+        border-bottom: none !important;
+
+        button {
+          border-bottom: 1px solid map.get($theme-map, primary-color-border) !important;
+        }
+      }
+    }
+  }
+
+  .desktops {
+
+    .pagination-dots span {
+      border-bottom: 4px solid map.get($theme-map, primary-hover);
+
+      &:hover {
+        border-bottom: 4px solid map.get($theme-map, primary-color_2);
+      }
+    }
+
+    .pagination-dots span.active {
+      border-bottom: 8px solid map.get($theme-map, primary-color_2);
+    }
+
+    .primary-color {
+      background-color: map.get($theme-map, primary-color_2);
+    }
+
+    &__block {
+      background-color: map.get($theme-map, primary-background-two);
+
+      .rename-input {
+        border-bottom: 1px solid map.get($theme-map, primary-hover);
+      }
+
+      .action-wrapper__kebab-menu {
+        &:hover {
+          * {
+            fill: map.get($theme-map, primary-color_2);
+          }
+        }
+      }
+
+      .angle {
+        &:nth-child(2) {
+          border-left: 2px solid map.get($theme-map, text-color);
+          border-top: 2px solid map.get($theme-map, text-color);
+        }
+
+        &:nth-child(3) {
+          border-top: 2px solid map.get($theme-map, text-color);
+          border-right: 2px solid map.get($theme-map, text-color);
+        }
+
+        &:nth-child(4) {
+          border-left: 2px solid map.get($theme-map, text-color);
+          border-bottom: 2px solid map.get($theme-map, text-color);
+        }
+
+        &:nth-child(5) {
+          border-right: 2px solid map.get($theme-map, text-color);
+          border-bottom: 2px solid map.get($theme-map, text-color);
+        }
+      }
+
+      &:hover {
+        .angle {
+          &:nth-child(2) {
+            border-left: 2px solid map.get($theme-map, primary-color_2);
+            border-top: 2px solid map.get($theme-map, primary-color_2);
+          }
+
+          &:nth-child(3) {
+            border-top: 2px solid map.get($theme-map, primary-color_2);
+            border-right: 2px solid map.get($theme-map, primary-color_2);
+          }
+
+          &:nth-child(4) {
+            border-left: 2px solid map.get($theme-map, primary-color_2);
+            border-bottom: 2px solid map.get($theme-map, primary-color_2);
+          }
+
+          &:nth-child(5) {
+            border-right: 2px solid map.get($theme-map, primary-color_2);
+            border-bottom: 2px solid map.get($theme-map, primary-color_2);
+          }
+        }
+
+        .icon-add {
+          &:after, &:before {
+            background-color: map.get($theme-map, primary-color_2);
+          }
+        }
+
+        .desktops__block--empty {
+          color: map.get($theme-map, primary-color_2) !important;
+        }
+
+        .desktops__block--title {
+          span {
+            color: map.get($theme-map, primary-color_2) !important;
+          }
+        }
+      }
+    }
+
+    &__content {
+      table {
+        thead {
+          border-top: 1px solid map.get($theme-map, primary-color-border);
+        }
+
+        tr {
+          border-bottom: 1px solid map.get($theme-map, primary-color-border);
+        }
+
+        th {
+          background: map.get($theme-map, primary-hover);
+        }
+      }
+    }
+
+    &__block_buttons {
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 455px;
+        width: 100%;
+        border-radius: 0;
+        outline: none;
+
+        button {
+          width: 49%;
+          height: 50px;
+
+          &:first-child {
+            background-color: transparent;
+            border: 1px solid map.get($theme-map, primary-color_2);
+            color: map.get($theme-map, primary-color_2) !important;
+
+            &:hover {
+              background-color: map.get($theme-map, primary-color_2);
+              color: map.get($theme-map, primary-background) !important;
+            }
+          }
+
+          &:last-child {
+            color: map.get($theme-map, primary-background) !important;
+          }
+        }
+      }
+    }
+  }
+
+  .angle {
+    &__container {
+      input {
+        border: 1px solid map.get($theme-map, primary-color-border);
+
+        &::placeholder {
+          color: map.get($theme-map, text-color) !important;
+        }
+      }
+
+      textarea {
+        border: 1px solid map.get($theme-map, primary-color-border);
+
+        &::placeholder {
+          color: map.get($theme-map, text-color);
+        }
+      }
+    }
+  }
+
+  .add-desktop {
+    background-color: map.get($theme-map, primary-background-two);
+    border: 1px solid map.get($theme-map, primary-color-border);
+
+    &__buttons {
+      button {
+        &:first-child {
+          border: 1px solid map.get($theme-map, primary-color_2);
+          color: map.get($theme-map, primary-color_2) !important;
+
+          &:hover {
+            background-color: map.get($theme-map, primary-color_2);
+            color: map.get($theme-map, primary-background) !important;
+          }
+        }
+
+        &:last-child {
+          color: map.get($theme-map, primary-background) !important;
+        }
+      }
+    }
+  }
+
+  .nav {
+    background-color: map.get($theme-map, primary-background-two);
+  }
+
+  .defaultButton {
+    border: 2px solid map.get($theme-map, primary-color_2) !important;
+    color: map.get($theme-map, primary-color_2);
+
+    &:hover {
+      background-color: map.get($theme-map, primary-color_2) !important;
+      color: map.get($theme-map, primary-background) !important;
+    }
+  }
+
+  .defaultButtonTwo {
+    background-color: map.get($theme-map, primary-color_2) !important;
+    border: 2px solid map.get($theme-map, primary-color_2) !important;
+    color: map.get($theme-map, primary-background-two) !important;
+
+    &:disabled {
+      border: 2px solid map.get($theme-map, primary-color-border);
+      background-color: map.get($theme-map, primary-color-border);
+      color: map.get($theme-map, primary-background) !important;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .defaultButtonThree {
+    background-color: map.get($theme-map, primary-background-button) !important;
+    color: map.get($theme-map, primary-background) !important;
+
+    &:disabled {
+      opacity: 0.8;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .checkbox {
+    input[type='checkbox']:not(:checked) + label {
+      border: 1px solid map.get($theme-map, primary-color-border) !important;
+      transition: none !important;
+    }
+
+    input[type='checkbox']:checked + label:after,
+    input[type='checkbox']:not(:checked) + label:after {
+      transition: none !important;
+      background-color: map.get($theme-map, primary-color_2);
+      border: 1px solid map.get($theme-map, primary-color_2) !important;
+    }
+
+    input[type='checkbox']:checked + label:before {
+      border-bottom: 2px solid map.get($theme-map, primary-background) !important;
+      border-right: 2px solid map.get($theme-map, primary-background) !important;
+    }
+  }
+
+  .layers {
+    tr {
+      &:first-child {
+        border-bottom: 1px solid map.get($theme-map, primary-color-border) !important;
+      }
+
+      &:last-child {
+        border-bottom: 1px solid map.get($theme-map, primary-color-border) !important;
+      }
+    }
+  }
+
+  .orange-button {
+    background-color: map.get($theme-map, primary-color_2) !important;
+
+    &:hover {
+      background-color: map.get($theme-map, primary-color_2) !important;
+    }
+  }
+
+  .angle {
+    &:nth-child(2) {
+      border-left: 2px solid map.get($theme-map, primary-color_2);
+      border-top: 2px solid map.get($theme-map, primary-color_2);
+    }
+
+    &:nth-child(3) {
+      border-top: 2px solid map.get($theme-map, primary-color_2);
+      border-right: 2px solid map.get($theme-map, primary-color_2);
+    }
+
+    &:nth-child(4) {
+      border-left: 2px solid map.get($theme-map, primary-color_2);
+      border-bottom: 2px solid map.get($theme-map, primary-color_2);
+    }
+
+    &:nth-child(5) {
+      border-right: 2px solid map.get($theme-map, primary-color_2);
+      border-bottom: 2px solid map.get($theme-map, primary-color_2);
+    }
+  }
+
+  .icon {
+    &-close {
+      &:after {
+        background-color: map.get($theme-map, primary-color_2) !important;
+      }
+
+      &:before {
+        background-color: map.get($theme-map, primary-color_2) !important;
+      }
+    }
+
+    &-search {
+      span {
+        border: 2px solid map.get($theme-map, primary-color_2) !important;
+
+        &:after {
+          background-color: map.get($theme-map, primary-color_2) !important;
+        }
+      }
+    }
+
+    &-add {
+      &:after {
+        background-color: map.get($theme-map, text-color);
+      }
+
+      &:before {
+        background-color: map.get($theme-map, text-color);
+      }
+    }
+  }
+
+  .edit-svg {
+    * {
+      fill: map.get($theme-map, primary-color_2) !important;
+    }
+  }
+
+  //.delete-svg {
+  //  path {
+  //    fill: map.get($theme-map, primary-color_2) !important;
+  //  }
+  //}
+
+  .app-checkbox {
+    &__fake {
+      border: 1px solid map.get($theme-map, primary-color_2) !important;
+
+      &::after {
+        background-color: map.get($theme-map, primary-color_2) !important;
+      }
+    }
+  }
+
+  .toggle {
+    background-color: map.get($theme-map, primary-color_2);
+
+    &:after {
+      background-color: map.get($theme-map, primary-background-two);
+    }
+
+    &.cancel {
+      &:before {
+        background-color: map.get($theme-map, primary-background-two);
+      }
+    }
+  }
+
+  .context-menu {
+    background-color: map.get($theme-map, primary-background);
+    border: 1px solid map.get($theme-map, primary-color-border);
+
+    li {
+      &:hover {
+        background-color: map.get($theme-map, primary-hover);
+      }
+    }
+
+    &__button {
+      &:hover {
+        background-color: map.get($theme-map, primary-hover) !important;
+      }
+    }
+  }
+
+  .layer-header input[type='text'],
+  .sub-layer-item input[type='text'] {
+    background-color: map.get($theme-map, primary-background);
+    border: 1px solid map.get($theme-map, primary-color-border);
+  }
+
+  .drag-over-before {
+    border-top: 2px dashed map.get($theme-map, primary-color_2);
+  }
+
+  .active_li {
+    background-color: map.get($theme-map, primary-hover);
+  }
+
+  .icon-kebab_menu {
+    &:hover {
+      * {
+        fill: map.get($theme-map, primary-color_2);
+      }
+    }
+
+    &__active {
+      * {
+        fill: map.get($theme-map, primary-color_2) !important;
+      }
+    }
+  }
+
+  .drag-over-after {
+    border-bottom: 2px dashed map.get($theme-map, primary-color_2);
+  }
+
+  .info-box {
+    &:after {
+      background-color: map.get($theme-map, primary-background-two);
+    }
+  }
+
+  .color-item__display {
+    border: 1px solid map.get($theme-map, text-color);
+
+    &:hover {
+      border: 2px solid map.get($theme-map, primary-color_2);
+    }
+  }
+
+  .continue {
+    &__button {
+      &:hover {
+        background-color: map.get($theme-map, primary-color_2);
+      }
+    }
+  }
+
+  .popup {
+    border: 1px solid map.get($theme-map, primary-color-border);
+    background-color: map.get($theme-map, primary-background-two);
+
+    button {
+      color: map.get($theme-map, primary-background-two) !important;
+    }
+  }
+
+  .add-desktop {
+    .angle {
+      &__container {
+        input {
+          border: 1px solid map.get($theme-map, primary-color-border);
+        }
+
+        textarea {
+          border: 1px solid map.get($theme-map, primary-color-border);
+
+          &::placeholder {
+            color: map.get($theme-map, text-color);
+          }
+        }
+      }
+    }
+
+    background-color: map.get($theme-map, primary-background-two);
+    border: 1px solid map.get($theme-map, primary-color-border);
+
+    &__buttons {
+      button {
+        &:first-child {
+          background-color: transparent;
+          border: 1px solid map.get($theme-map, primary-color_2);
+          color: map.get($theme-map, primary-color_2);
+
+          &:hover {
+            background-color: map.get($theme-map, primary-color_2);
+            color: map.get($theme-map, primary-background);
+          }
+        }
+
+        &:last-child {
+          background-color: map.get($theme-map, primary-color_2);
+          color: map.get($theme-map, primary-background);
+        }
+      }
+    }
+  }
+
+  a {
+    &:hover {
+      color: map.get($theme-map, primary-color_2);
+    }
+  }
+
+  .orange-text {
+    color: map.get($theme-map, primary-color_2);
+  }
+
+  .orange-button {
+    background-color: map.get($theme-map, primary-color_2);
+  }
+
+  .vc-colorpicker.white[data-v-0492277d] {
+    background-color: map.get($theme-map, primary-background) !important;
+    border: 1px solid map.get($theme-map, primary-color-border) !important;
+
+    * {
+      color: map.get($theme-map, text-color) !important;
+    }
+  }
+
+  .vs__dropdown-option--highlight {
+    background-color: map.get($theme-map, primary-background-two) !important;
+  }
+
+  .vc-input-toggle {
+    &:hover {
+      background-color: map.get($theme-map, primary-hover) !important;
+    }
+  }
+
+  .window {
+    &__content {
+      background-color: map.get($theme-map, primary-background-two);
+    }
+
+    &__delete,
+    &__edit {
+      background-color: map.get($theme-map, primary-background-two);
+      border: 1px solid map.get($theme-map, primary-color-border);
+
+      div {
+        button {
+          &:last-child {
+            border: 1px solid map.get($theme-map, primary-color_2);
+            color: map.get($theme-map, primary-color_2) !important;
+
+            &:hover {
+              background-color: map.get($theme-map, primary-color_2);
+              color: map.get($theme-map, primary-background) !important;
+            }
+          }
+
+          &:first-child {
+            color: map.get($theme-map, primary-background) !important;
+            background-color: map.get($theme-map, primary-color_2);
+          }
+        }
+      }
+    }
+  }
+  .form {
+
+    &__save {
+      background-color: map.get($theme-map, primary-color_2);
+      color: map.get($theme-map, primary-background) !important;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &__cancel {
+      border: 0.125rem solid map.get($theme-map, primary-color_2);
+      color: map.get($theme-map, primary-color_2) !important;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+
+  .nav_ {
+    border-top: 1px solid map.get($theme-map, primary-color-border);
+    background-color: map.get($theme-map, primary-background-two);
+  }
+
+  .admin__active {
+    color: map.get($theme-map, primary-color_2) !important;
+  }
+
+  .panel-info {
+    background: map.get($theme-map, primary-background);
+    color: map.get($theme-map, text-color);
+
+    &__border {
+      border: 1px solid map.get($theme-map, primary-color-border) !important;
+    }
+  }
+
+  .suggestions-list {
+    background: map.get($theme-map, primary-background);
+    border-left: 1px solid map.get($theme-map, primary-color-border);
+    border-right: 1px solid map.get($theme-map, primary-color-border);
+    border-bottom: 1px solid map.get($theme-map, primary-color-border);
+
+    &__active {
+      background-color: map.get($theme-map, primary-hover);
+    }
+  }
+
+  .index__content-left__buttons {
+    button {
+      &:first-child {
+        border: 1px solid map.get($theme-map, primary-color_2);
+        color: map.get($theme-map, primary-color_2) !important;
+
+        &:hover {
+          background-color: map.get($theme-map, primary-color_2);
+          color: map.get($theme-map, primary-background) !important;
+        }
+      }
+
+      &:last-child {
+        background-color: map.get($theme-map, primary-color_2);
+        color: map.get($theme-map, primary-background) !important;
+      }
+    }
+  }
+
+  .icon-arrow {
+    &:after {
+      background-color: map.get($theme-map, text-color);
+    }
+
+    &:before {
+      background-color: map.get($theme-map, text-color);
+    }
+  }
+  .login_layout {
+    &__container {
+      background-color: map.get($theme-map, primary-background-two);
+    }
+  }
+
+  .sign-in {
+
+    button {
+      color: map.get($theme-map, primary-background-two) !important;
+    }
+
+    a:hover {
+      color: map.get($theme-map, primary-color_2) !important;
+    }
+
+    .error {
+      border-color: map.get($theme-map, primary-color_2) !important;
+      background-color: rgba(214, 129, 102, 0.1) !important;
+    }
+
+    .filled {
+      border: 1.5px solid map.get($theme-map, primary-color_2);
+    }
+
+    &__angle {
+      border-left: 2px solid map.get($theme-map, primary-color_2);
+      border-bottom: 2px solid map.get($theme-map, primary-color_2);
+    }
+
+    &__content {
+      &:after,
+      &:before {
+        background: map.get($theme-map, primary-color_2);
+      }
+    }
+
+    &__error-box {
+      background-color: rgba(214, 129, 102, 0.1) !important;
+    }
+
+    input {
+      border: 1px solid map.get($theme-map, primary-color-border);
+
+      &:focus {
+        border: 1.5px solid map.get($theme-map, primary-color_2) !important;
+      }
+    }
+
+    div {
+      button {
+        color: map.get($theme-map, primary-background);
+      }
+    }
+  }
+
+  .sign-up {
+    .invalid {
+      border: 1px solid map.get($theme-map, primary-color_2) !important;
+      background-color: $primary-color_2-hover !important;
+    }
+
+    &__hover {
+      border: 1px solid map.get($theme-map, primary-color_2) !important;
+      color: map.get($theme-map, primary-color_2) !important;
+
+      * {
+        stroke: map.get($theme-map, primary-color_2) !important;
+      }
+    }
+
+    &__inactive {
+      border: 1px solid map.get($theme-map, primary-color-border) !important;
+      color: map.get($theme-map, primary-color-border) !important;
+
+      * {
+        stroke: map.get($theme-map, primary-color-border) !important;
+      }
+    }
+
+    &__fill {
+      background-color: map.get($theme-map, primary-color_2) !important;
+      color: map.get($theme-map, primary-background-two) !important;
+
+      * {
+        stroke: map.get($theme-map, primary-background-two) !important;
+      }
+    }
+
+    a:hover {
+      color: map.get($theme-map, primary-color_2) !important;
+    }
+
+    .filled {
+      border: 1px solid map.get($theme-map, primary-color_2) !important;
+    }
+
+    &__angle {
+      border-left: 2px solid map.get($theme-map, primary-color_2);
+      border-bottom: 2px solid map.get($theme-map, primary-color_2);
+    }
+
+    &__content {
+      &:after,
+      &:before {
+        background: map.get($theme-map, primary-color_2);
+      }
+    }
+
+    &--next {
+      background-color: transparent;
+      border: 1px solid map.get($theme-map, primary-color_2);
+      color: map.get($theme-map, primary-color_2) !important;
+
+      * {
+        stroke: map.get($theme-map, primary-color_2);
+      }
+
+      &:hover {
+        background-color: map.get($theme-map, primary-color_2);
+        color: map.get($theme-map, primary-background-two) !important;
+
+        svg {
+          * {
+            stroke: map.get($theme-map, primary-background-two) !important;
+          }
+        }
+      }
+    }
+
+    &--accept {
+      color: map.get($theme-map, primary-background-two) !important;
+    }
+
+    &__error-box {
+      background-color: rgba(214, 129, 102, 0.1) !important;
+    }
+
+    input {
+      border: 1px solid map.get($theme-map, primary-color-border);
+
+      &:focus {
+        border: 1.5px solid map.get($theme-map, primary-color_2) !important;
+      }
+    }
+  }
+
+  .icon-added {
+    &:after {
+      border-bottom: 2px solid map.get($theme-map, primary-color_2);
+      border-right: 2px solid map.get($theme-map, primary-color_2);
+    }
+  }
+
+  .map-controls {
+    background: map.get($theme-map, primary-background-two) !important;
+
+    &__button {
+      &:after {
+        border-bottom: 2px solid map.get($theme-map, primary-color_2);
+        border-right: 2px solid map.get($theme-map, primary-color_2);
+      }
+    }
+
+    &__activ {
+      background: map.get($theme-map, primary-hover) !important;
+    }
+
+    &__block {
+      background: map.get($theme-map, primary-background-two) !important;
+
+      button {
+        &:hover {
+          background: map.get($theme-map, primary-hover) !important;
+        }
+      }
+    }
+  }
+
+  .selection {
+    &__filter {
+      button {
+        background-color: map.get($theme-map, primary-color_2);
+        color: map.get($theme-map, primary-background);
+      }
+    }
+  }
+
+  .actions {
+    //button {
+    //  background-color: map.get($theme-map, primary-color_2);
+    //  color: map.get($theme-map, primary-background);
+    //}
+  }
+
+  .table {
+    tr {
+      border-bottom: 1px solid map.get($theme-map, primary-color-border) !important;
+    }
+
+    th {
+      background: map.get($theme-map, primary-hover) !important;
+    }
+  }
+
+  .admin-view__nav {
+    border-right: 1px solid map.get($theme-map, primary-color-border);
+  }
+
+  .layer-list {
+    tbody {
+      tr {
+        &:hover {
+          background: map.get($theme-map, primary-hover);
+        }
+      }
+    }
+
+    li {
+      &:hover {
+        background-color: map.get($theme-map, primary-hover);
+      }
+    }
+
+    &__th {
+      cursor: pointer;
+
+      &:hover {
+        background: map.get($theme-map, primary-hover2) !important;
+      }
+    }
+  }
+
+  .angle__first {
+    border-bottom: 2px solid map.get($theme-map, primary-color_2) !important;
+    border-right: 2px solid map.get($theme-map, primary-color_2) !important;
+  }
+
+  .modal-overlay {
+    background-color: map.get($theme-map, primary-background-two);
+  }
+
+  .info-coordinates {
+    background-color: map.get($theme-map, primary-background-two);
+    border: 1px solid map.get($theme-map, primary-color-border);
+
+    span {
+      border-left: 1px solid map.get($theme-map, primary-color-border);
+    }
+  }
+
+  .geometry-editor {
+    background-color: map.get($theme-map, primary-background-two);
+    border: 1px solid map.get($theme-map, primary-color-border);
+
+    &__active {
+      background-color: map.get($theme-map, primary-hover);
+
+      svg {
+        circle {
+          fill: map.get($theme-map, primary-color_2) !important;
+        }
+
+        path {
+          stroke: map.get($theme-map, primary-color_2) !important;
+        }
+      }
+    }
+
+    &__activeBbox {
+      background-color: map.get($theme-map, primary-hover);
+
+      svg {
+        circle {
+          fill: map.get($theme-map, primary-color_2) !important;
+        }
+
+        path {
+          fill: map.get($theme-map, primary-color_2) !important;
+          stroke: map.get($theme-map, primary-color_2) !important;
+        }
+      }
+    }
+
+    &__bbox {
+      svg {
+        circle {
+          fill: map.get($theme-map, primary-color-icon);
+        }
+
+        path {
+          fill: map.get($theme-map, primary-color-icon);
+        }
+      }
+
+      &:hover {
+        svg {
+          circle {
+            fill: map.get($theme-map, primary-color_2);
+          }
+
+          path {
+            fill: map.get($theme-map, primary-color_2);
+          }
+        }
+      }
+    }
+
+    button {
+      border-right: 1px solid map.get($theme-map, primary-color-border);
+
+      &:last-child {
+        border-right: none;
+      }
+
+      &:hover {
+        background-color: map.get($theme-map, primary-hover);
+
+        svg {
+          circle {
+            fill: map.get($theme-map, primary-color_2) !important;
+          }
+
+          path {
+            stroke: map.get($theme-map, primary-color_2) !important;
+          }
+        }
+      }
+
+      svg {
+        circle {
+          fill: map.get($theme-map, primary-color-icon);
+        }
+
+        path {
+          stroke: map.get($theme-map, primary-color-icon);
+        }
+      }
+    }
+  }
+
+  .draggable-modal {
+    border: 1px solid map.get($theme-map, primary-color-border);
+    background: map.get($theme-map, primary-background-two);
+  }
+
+  .modal-header {
+    background: map.get($theme-map, primary-hover);
+  }
+
+  .modal-svg {
+    * {
+      fill: map.get($theme-map, primary-color-icon);
+    }
+
+    &-active {
+      * {
+        fill: map.get($theme-map, primary-color_2) !important;
+      }
+    }
+  }
+
+  .edit_forest_price {
+    background-color: map.get($theme-map, primary-background-two);
+    border: 1px solid map.get($theme-map, primary-color-border);
+
+    &__input {
+      background-color: map.get($theme-map, primary-background-two);
+      border: 1px solid map.get($theme-map, primary-color-border);
+    }
+
+    &__invalid {
+      border: 1.5px solid $primary-red !important;
+      background-color: map.get($theme-map, primary-invalid) !important;
+    }
+
+    &--accept {
+      background-color: map.get($theme-map, primary-color_2);
+    }
+  }
+
+  .select-file {
+    background-color: map.get($theme-map, primary-color_2);
+    color: map.get($theme-map, primary-background);
+  }
+
+  .users {
+    th {
+      cursor: pointer;
+
+      &:hover {
+        background-color: map.get($theme-map, primary-hover) !important;
+      }
+    }
+
+    .arrow {
+      border-right: 3px solid map.get($theme-map, primary-color_2);
+      border-bottom: 3px solid map.get($theme-map, primary-color_2);
+    }
+  }
+}
+
+.darkTheme {
+  @include apply-theme-styles($dark-theme);
+
+  /* From Uiverse.io by Juanes200122 */
+  .loader {
+    width: 48px;
+    height: 48px;
+    border: 3px dotted #fff;
+    border-style: solid solid dotted dotted;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 2s linear infinite;
+  }
+
+  .loader::after {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 3px dotted $primary-color_2;
+    border-style: solid solid dotted;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    animation: rotationBack 1s linear infinite;
+    transform-origin: center center;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rotationBack {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+
+  .notification__loader-wave {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 16px;
+    color: transparent; /* Текст изначально прозрачный */
+    position: relative;
+    text-transform: uppercase;
+    background: linear-gradient(
+                    90deg,
+                    rgb(255, 255, 255, 0.6) 0%,
+                    #ffffff 50%,
+                    rgb(255, 255, 255, 0.6) 100%
+    );
+    background-size: 200% 100%; /* Увеличиваем размер фона для эффекта движения */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Показываем только градиент */
+    animation: waveText 2s linear infinite;
+  }
+}
+
+.lightTheme {
+  /* From Uiverse.io by Juanes200122 */
+  .loader {
+    width: 48px;
+    height: 48px;
+    border: 3px dotted #000000;
+    border-style: solid solid dotted dotted;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 2s linear infinite;
+  }
+
+  .loader::after {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 3px dotted $primary-color_2;
+    border-style: solid solid dotted;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    animation: rotationBack 1s linear infinite;
+    transform-origin: center center;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rotationBack {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+
+  .notification__loader-wave {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 16px;
+    color: transparent; /* Текст изначально прозрачный */
+    position: relative;
+    text-transform: uppercase;
+    background: linear-gradient(
+                    90deg,
+                    rgba(110, 110, 110, 0.6) 0%,
+                    #000000 50%,
+                    rgb(110, 110, 110, 0.6) 100%
+    );
+    background-size: 200% 100%; /* Увеличиваем размер фона для эффекта движения */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Показываем только градиент */
+    animation: waveText 2s linear infinite;
+  }
+
+  @include apply-theme-styles($light-theme);
+}

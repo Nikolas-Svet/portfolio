@@ -1,0 +1,109 @@
+.dp--tp-wrap {
+  display: none;
+}
+
+.dp__selection_preview {
+  display: none !important;
+}
+
+.dp__action_buttons {
+  width: 100% !important;
+  flex: auto !important;
+  justify-content: center !important;
+
+  button {
+    width: 40% !important;
+    height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    &:first-child {
+      border-color: var(--dp-primary-color) !important;
+
+      &:hover {
+        background-color: var(--dp-primary-color) !important;
+      }
+    }
+
+    &:last-child {
+      margin-left: 5px !important;
+
+      &:hover {
+        opacity: 0.8 !important;
+      }
+    }
+  }
+}
+
+//.dp__pointer {
+//  height: 40px !important;
+//}
+
+.dp__theme_light {
+  --dp-background-color: #212121 !important;
+  --dp-text-color: #fff !important;
+  --dp-hover-color: #484848 !important;
+  --dp-hover-text-color: #fff !important;
+  --dp-hover-icon-color: #959595 !important;
+  --dp-primary-color: #d68166 !important;
+  --dp-primary-disabled-color: #61a8ea !important;
+  --dp-primary-text-color: #fff !important;
+  --dp-secondary-color: #a9a9a9 !important;
+  --dp-border-color: rgb(167, 167, 167) !important;
+  --dp-menu-border-color: rgb(167, 167, 167) !important;
+  --dp-border-color-hover: #aaaeb7 !important;
+  --dp-border-color-focus: #aaaeb7 !important;
+  --dp-disabled-color: #737373 !important;
+  --dp-disabled-color-text: #d0d0d0 !important;
+  --dp-scroll-bar-background: #212121 !important;
+  --dp-scroll-bar-color: #484848 !important;
+  --dp-success-color: #00701a !important;
+  --dp-success-color-disabled: #428f59 !important;
+  --dp-icon-color: #959595 !important;
+  --dp-danger-color: #e53935 !important;
+  --dp-marker-color: #e53935 !important;
+  --dp-tooltip-color: #3e3e3e !important;
+  --dp-highlight-color: rgb(0 92 178 / 20%) !important;
+  --dp-range-between-dates-background-color: var(--dp-hover-color, #484848) !important;
+  --dp-range-between-dates-text-color: var(--dp-hover-text-color, #fff) !important;
+  --dp-range-between-border-color: var(--dp-hover-color, #fff) !important;
+}
+
+:root {
+  --dp-common-transition: all 0.1s ease-in !important;
+  --dp-menu-padding: 6px 8px !important;
+  --dp-animation-duration: 0.1s !important;
+  --dp-menu-appear-transition-timing: cubic-bezier(0.4, 0, 1, 1) !important;
+  --dp-transition-timing: ease-out !important;
+  --dp-action-row-transtion: all 0.2s ease-in !important;
+  --dp-font-family: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu,
+    cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+  --dp-border-radius: 0 !important;
+  --dp-cell-border-radius: 0 !important;
+  --dp-transition-length: 22px !important;
+  --dp-transition-timing-general: 0.1s !important;
+  --dp-button-height: 35px !important;
+  --dp-month-year-row-height: 35px !important;
+  --dp-month-year-row-button-size: 25px !important;
+  --dp-button-icon-height: 20px !important;
+  --dp-calendar-wrap-padding: 0 5px !important;
+  --dp-cell-size: 35px !important;
+  --dp-cell-padding: 5px !important;
+  --dp-common-padding: 10px !important;
+  --dp-input-icon-padding: 35px !important;
+  --dp-input-padding: 6px 30px 6px 12px !important;
+  --dp-menu-min-width: 260px !important;
+  --dp-action-buttons-padding: 1px 6px !important;
+  --dp-row-margin: 5px 0 !important;
+  --dp-calendar-header-cell-padding: 0.5rem !important;
+  --dp-multi-calendars-spacing: 10px !important;
+  --dp-overlay-col-padding: 3px !important;
+  --dp-time-inc-dec-button-size: 32px !important;
+  --dp-font-size: 14px !important;
+  --dp-preview-font-size: 0.8rem !important;
+  --dp-time-font-size: 2rem !important;
+  --dp-action-button-height: 22px !important;
+  --dp-action-row-padding: 8px !important;
+  --dp-direction: ltr !important;
+}

@@ -1,0 +1,18 @@
+.expand-enter-active,
+.expand-leave-active {
+  transition:
+    max-height 0.3s ease,
+    opacity 0.1s ease;
+}
+
+.expand-enter-from,
+.expand-leave-to {
+  max-height: 0;
+  opacity: 0;
+}
+
+.expand-enter-to,
+.expand-leave-from {
+  max-height: 450px;
+  opacity: 1;
+}

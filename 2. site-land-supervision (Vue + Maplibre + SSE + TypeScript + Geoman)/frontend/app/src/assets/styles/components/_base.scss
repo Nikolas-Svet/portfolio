@@ -1,0 +1,6 @@
+$background-error: rgba(214, 129, 102, 0.2);
+.error {
+  &__input {
+    background-color: $background-error !important;
+  }
+}

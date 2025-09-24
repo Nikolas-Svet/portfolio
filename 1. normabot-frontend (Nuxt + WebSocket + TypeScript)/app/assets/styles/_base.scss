@@ -1,0 +1,36 @@
+//@use "variables";
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  overscroll-behavior: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100dvw;
+  height: 100dvh;
+  font-family: sans-serif;
+  //background: variables.$primary-black;
+}
+
+.container {
+  &-chat {
+    max-width: 1020px;
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+}
+
+button, a {
+  outline: none;
+  cursor: pointer;
+}
+
+input, select, textarea {
+  outline: none;
+}

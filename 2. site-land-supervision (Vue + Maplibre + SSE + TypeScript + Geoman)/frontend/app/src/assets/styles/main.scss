@@ -1,0 +1,110 @@
+@import 'components/admin-base';
+@import 'components/fonts.css';
+@import 'components/variables';
+@import 'components/icons';
+@import 'components/images';
+@import 'components/checkbox';
+@import 'components/window';
+@import 'components/anims';
+@import 'components/datePicker';
+@import 'components/colorPicker';
+@import 'components/theme/theme';
+@import 'components/base';
+@import 'components/geometry';
+
+* {
+  overscroll-behavior: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+  font-family: $Golos_Text_Regular;
+}
+
+*::placeholder {
+  font-family: $Golos_Text_Regular !important;
+}
+
+#app {
+  height: 100%;
+  display: grid;
+  grid-auto-rows: auto 1fr;
+}
+
+body {
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 111;
+  padding: 0 100px;
+}
+
+@media (width < 1700px) {
+  .container {
+    padding: 0 100px;
+  }
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+.vs__no-options {
+  &:after {
+    background-color: #a7a7a7ff !important;
+    padding-top: 5px;
+    content: 'Выпадающий список пустой';
+    visibility: visible;
+    position: absolute;
+    inset: 0;
+    font-weight: bold;
+  }
+}
+
+.angle {
+  position: absolute;
+
+  &__container {
+    position: relative;
+  }
+
+  &:nth-child(2) {
+    left: 0;
+    top: 0;
+  }
+
+  &:nth-child(3) {
+    right: 0;
+    top: 0;
+  }
+
+  &:nth-child(4) {
+    left: 0;
+    bottom: 0;
+  }
+
+  &:nth-child(5) {
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.vc-colorpicker.white[data-v-0492277d] {
+  backdrop-filter: blur(13px) !important;
+  border-radius: 0 !important;
+
+  * {
+    border-radius: 0 !important;
+  }
+}
+
+a {
+  &:hover {
+    transition: all 0.3s ease;
+  }
+}

@@ -1,0 +1,77 @@
+@use "fonts";
+
+// ====================================
+// 1. Backgrounds
+// ====================================
+
+// Основной фон приложения
+$color-bg-primary:           #FFFFFF;
+
+// Фон левой панели
+$color-bg-sidebar:           #F5F7FB;
+
+// Фон блока ответа пользователя в чате
+$color-bg-chat-reply:        #E5F0FD;
+
+// ====================================
+// 2. Borders & Dividers
+// ====================================
+
+// Линии в левой панели и в документах (одинаковые)
+$color-border-sidebar:       #C7D1DD;
+
+$color-hover-sidebar: #0061D90F;
+
+
+$color-border-chat: #D4D4D4;
+
+// Основная линия в чате
+$color-border-chat-primary:  #DADADA;
+
+// Вторая линия в чате
+$color-border-chat-secondary:#E2E2E2;
+
+// Вторая линия в документах
+$color-border-docs-secondary: #D8D8D8;
+
+// ====================================
+// 3. Brand & Accent Colors
+// ====================================
+
+$color-green: #2AB318;
+$color-red: #F62828;
+$color-light-blue: #F0F6FD;
+
+// Основной «брендовый» цвет сайта
+$color-primary:              #0061D9;
+$color-primary-hover:              #0958BA;
+
+// Второй акцент (для градиента)
+$color-accent-purple:        #8B48FF;
+
+// ====================================
+// 4. Text Colors
+// ====================================
+
+// Основной цвет шрифта
+$color-text-primary:         #1C1C1C;
+
+// Серый для основного текста второго уровня
+$color-text-secondary:       #66727F;
+
+// Лёгкий серый для вспомогательного текста
+$color-text-tertiary:        #9FABBA;
+
+// Текст на цветном/тёмном фоне (инверсия)
+$color-text-on-primary:      #FFFFFF;
+
+// ====================================
+// 5. Gradients
+// ====================================
+
+// Градиент фона (например, хедер или кнопка)
+$gradient-bg-primary: linear-gradient(
+                89.48deg,
+                $color-primary 48.93%,
+                $color-accent-purple 76.45%
+);

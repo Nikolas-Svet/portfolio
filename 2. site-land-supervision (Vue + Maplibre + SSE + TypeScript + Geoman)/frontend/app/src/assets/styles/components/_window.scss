@@ -1,0 +1,51 @@
+.window {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  z-index: 100;
+
+  &__delete,
+  &__edit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #212121;
+    border: 1px solid #888888;
+    z-index: 5;
+    max-width: 490px;
+    width: 100%;
+
+    p {
+      padding: 30px 50px;
+      font-family: $Golos_Text_Medium;
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    &-block {
+      padding: 0 50px 30px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      border-radius: 0;
+      outline: none;
+
+      button {
+        width: 40%;
+        height: 40px;
+
+        &:last-child {
+          background-color: transparent;
+        }
+
+        &:first-child {
+          border: none;
+        }
+      }
+    }
+  }
+}

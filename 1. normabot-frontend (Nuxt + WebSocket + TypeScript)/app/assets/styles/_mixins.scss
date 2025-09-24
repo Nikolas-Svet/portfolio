@@ -1,0 +1,10 @@
+@mixin gradient-text($from, $to, $angle: 90deg) {
+  background: linear-gradient($angle, $from, $to);
+  /* Обрезаем фон по контуру текста */
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* Делаем сам текст прозрачным, чтобы был виден фон */
+  color: transparent !important;
+  /* Для WebKit-браузеров */
+  -webkit-text-fill-color: transparent !important;
+}
